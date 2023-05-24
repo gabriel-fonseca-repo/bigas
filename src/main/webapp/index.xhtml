@@ -5,13 +5,58 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-<head>
+>
+<h:head>
     <title>Bigas</title>
-</head>
-<body>
-<h:form>
-    <h:outputText value="#{index.message}"/>
-</h:form>
-</body>
+    <h:outputStylesheet library="css" name="index.css"/>
+    <h:outputScript library="js" name="tarefa.js" target="body"/>
+    <h:outputScript library="js" name="index.js" target="body"/>
+</h:head>
+<h:body>
+    <div class="container scrollbar">
+        <div id="header" class="header">
+            <fieldset>
+                <h1>Trabalho AV3</h1>
+                Caminhos críticos de grafos em contexto de tarefas
+            </fieldset>
+        </div>
+
+        <div id="main" class="main">
+            <fieldset class="content">
+                <div class="content-column">
+                    <h2>Cadastrar tarefa</h2>
+                    <label for="atividade" class="float-label">
+                        <span>Descrição</span>
+                        <input type="text" id="atividade" name="atividade"/>
+                    </label>
+                    <label for="duracao" class="float-label">
+                        <span>Duração</span>
+                        <input id="duracao" name="duracao"/>
+                    </label>
+                    <label class="float-label">
+                        <span>Tarefas pré-requisito (separado por virgula)</span>
+                        <input type="text" id="anteriores"/>
+                    </label>
+                    <button type="button" id="botaoCadastro">Cadastrar</button>
+                </div>
+                <div class="content-column">
+                    <h2>Lista de tarefas</h2>
+                    <div style="margin-bottom: 1rem;" class="scrollbar">
+                        <div class="lista-wrapper">
+                            <ul id="lista">
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: flex-end;">
+                        <button id="botaoCaminho">Computar caminho crítico</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas></canvas>
+        </div>
+    </div>
+</h:body>
 </html>
